@@ -12,8 +12,5 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Копируем проект и скрипт запуска
 COPY . .
 
-# Делаем скрипт исполняемым
-RUN chmod +x test.sh
-
 # Указываем точку входа
 ENTRYPOINT ["pytest"]
