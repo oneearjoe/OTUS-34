@@ -70,6 +70,7 @@ def browser(request, logger):
     base_url = request.config.getoption("--url")
     selenoid_url = request.config.getoption("--selenoid_url")
     remote = request.config.getoption("--remote")
+    print(f"⚠️ DEBUG remote: {remote}")
 
     if remote:
 
