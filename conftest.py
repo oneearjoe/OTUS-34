@@ -80,6 +80,8 @@ def browser(request, logger):
             options = FirefoxOptions()
         elif browser_name == "edge":
             options = EdgeOptions()
+        else:
+            raise ValueError(f"Unsupported browser for remote: {browser_name}")
 
 
         options.set_capability("browserName", browser_name)
