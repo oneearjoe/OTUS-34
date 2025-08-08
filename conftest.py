@@ -15,7 +15,7 @@ def pytest_addoption(parser):
     parser.addoption("--url", default="http://192.168.1.105:8081/", help="Base OpenCart URL")
     parser.addoption("--log_level", default="INFO")
     parser.addoption("--selenoid_url", default="http://77.244.221.82/wd/hub")
-    parser.addoption("--remote", action="store_true", help="Run tests on Selenoid")
+    parser.addoption("--remote", default="true", help="Run tests on Selenoid")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
