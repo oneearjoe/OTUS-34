@@ -16,6 +16,8 @@ def pytest_addoption(parser):
     parser.addoption("--log_level", default="INFO")
     parser.addoption("--selenoid_url", default="http://77.244.221.82/wd/hub")
     parser.addoption("--remote", action="store_true", help="Run tests on Selenoid")
+    parser.addoption("--browser_version", default="128.0", help="Browser version")
+    parser.addoption("--threads", default="1", help="Number of threads")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
