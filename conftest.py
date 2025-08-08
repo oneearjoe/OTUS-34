@@ -15,7 +15,7 @@ def pytest_addoption(parser):
     parser.addoption("--url", default="http://192.168.1.105:8081/", help="Base OpenCart URL")
     parser.addoption("--log_level", default="INFO")
     parser.addoption("--selenoid_url", default="http://77.244.221.82/wd/hub")
-    parser.addoption("--remote", default="true", help="Run tests on Selenoid")
+    parser.addoption("--remote", action="store_true", help="Run tests on Selenoid")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -70,7 +70,6 @@ def browser(request, logger):
     base_url = request.config.getoption("--url")
     selenoid_url = request.config.getoption("--selenoid_url")
     remote = request.config.getoption("--remote")
-    print(f"⚠️ DEBUG remote: {remote}")
 
     if remote:
 
@@ -80,8 +79,6 @@ def browser(request, logger):
             options = FirefoxOptions()
         elif browser_name == "edge":
             options = EdgeOptions()
-        else:
-            raise ValueError(f"Unsupported browser for remote: {browser_name}")
 
 
         options.set_capability("browserName", browser_name)
